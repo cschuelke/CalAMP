@@ -54,7 +54,9 @@ elseif strcmp(d_recon_prior,'complex')
     
     %adding this makes sure k does not get too small, and 
     %thereby greatly improves convergence 
-    md=md./sqrt(var(md)).*sqrt(d_complex_var);  
+    if var(md)~=0
+        md=md./sqrt(var(md)).*sqrt(d_complex_var);  
+    end
 
         
 end

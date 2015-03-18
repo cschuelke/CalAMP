@@ -5,28 +5,28 @@ addpath('subroutines');
 %% Select options and launch a recon
 
 %% Signal options
-N   =   300;
+N   =   500;
 rho =   0.2;
 signal_type = 'complexGauss';           % 'realGauss', 'complexGauss'
 signal_mean = 0;
 signal_var = 1;
 
 %% Mixing options
-alpha_list=0.9;
+alpha_list=0.8;
 matrix_type = 'complexGauss';          % 'realGauss', 'complexGauss'
 
 %% Sensing options
 Delta = 1e-15;                  % AWGN variance
 
 %% Calibration options
-P = 2;
+P = 3;
 cal_type = 'gain';              % 'none', 'gain' 'faultySensors'
 sensing='realCS';               % leave this
 
 d_distribution = 'complexGauss';     % 'uniform', 'gauss', 'complexGauss'
 d_recon_prior = 'complex';         % 'uniform', 'mis','complex'
 
-epsilon =     0.3;
+epsilon =     0.2;
 faulty_mean = 0;
 faulty_var = rho*signal_var;
 
@@ -48,12 +48,11 @@ d_complex_var = 20;
 iter_max = 1000;
 txt_display = 1;
 plot_display = 1;
-damping = 0.8;                    % 1 is undamped, 0 infinitely damped
+damping = 0.9;                    % 1 is undamped, 0 infinitely damped
 %0.8 for faulty sensors
 
 
 for ind_alpha=1:length(alpha_list)  
-    for ind2=1:1
         alpha=alpha_list(ind_alpha);
         fprintf('alpha = %d \n',alpha);
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -85,7 +84,5 @@ for ind_alpha=1:length(alpha_list)
         clear mse;
         my_mu(ind_alpha,ind2)=mus(end);
         clear mus;
-        
-    end
 end
 

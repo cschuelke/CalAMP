@@ -13,7 +13,7 @@ MX = 0*ones(N,P);
 VX = rho.*signal_var.*ones(N,P);  %initialize for damping
 
 vx = rho.*signal_var.*ones(N,P);
-mx = normrnd(0,1,[N P]);
+mx = 0*normrnd(0,1,[N P]);
 
 VZ = signal_var.*ones(size(Y));%F2*vx;
 MZ = double(Y);
