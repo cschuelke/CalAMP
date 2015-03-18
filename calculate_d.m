@@ -35,10 +35,12 @@ elseif strcmp(d_recon_prior,'mis')
 elseif strcmp(d_recon_prior,'complex')
     phase = MD./abs(MD); 
     phase(MD==0)=0;
-    S = (1./VD + 1/(d_complex_var) ).^(-1);
-    M = S.*(abs(MD)./VD + 0/(d_complex_var));
-    int0 = Int(P,M,S,0,Inf);
-    int1 = Int(P+1,M,S,0,Inf);
+%     S = (1./VD + 1/(d_complex_var) ).^(-1);
+%     M = S.*(abs(MD)./VD + 0/(d_complex_var));
+    S=VD;
+    M=abs(MD);
+    int0 = Int(P+1,M,S,0,Inf);
+    int1 = Int(P+2,M,S,0,Inf);
     result = int1./max(int0,eps);
     
 %     dinf=1e-8;dsup=1e10; DMAX=dsup;
