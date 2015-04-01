@@ -80,9 +80,9 @@ for ind_alpha=1:length(alpha_list)
         %main loop
         launch_recon();
         
-        my_mse(ind_alpha,ind2)=mse(end);
+        my_mse(ind_alpha)=mse(end);
         clear mse;
-        my_mu(ind_alpha,ind2)=mus(end);
+        my_mu(ind_alpha)=mus(end);
         clear mus;
 end
 
